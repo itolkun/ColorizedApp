@@ -18,18 +18,19 @@ class ViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        coloredView.layer.cornerRadius = 15
+        coloredView.layer.cornerRadius = 20
         sliderAction()
         
     }
     
     @IBAction func sliderAction() {
-        redLabel.text = redSlider.value.formatted()
-        greenLabel.text = greenSlider.value.formatted()
-        blueLabel.text = blueSlider.value.formatted()
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
         
         coloredView.backgroundColor = UIColor.init(
             red: CGFloat(redSlider.value),
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
             alpha: 1
         )
     }
+    
     
 }
 
